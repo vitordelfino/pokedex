@@ -1,0 +1,12 @@
+.ant-carousel {
+  text-align: center;
+}
+
+.ant-pagination {
+  text-align: center;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: red !important;
+}
