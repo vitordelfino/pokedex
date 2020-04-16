@@ -15,11 +15,13 @@ jobs:
       - name: Install Dependencies
         run: npm install
       - name: Generate gpg key
-        run: echo $GPG_PRIVATE_KEY | tr ',' '\n' > ./private_key.gpg && ls
+        run: echo $GPG_SECRET_KEY > ./private_key.gpg
         env:
-          GIT_SECRET_KEY: ${{ secrets.GIT_SECRET_KEY }}
+          GPG_SECRET_KEY: ${{ secrets.GPG_SECRET_KEY }}
       - name: Import gpg key
         run: gpg --import ./private_key.gpg
+      - name: Reveal secrets.FIREBASE_TOKEN
+        run: git secret reveal
       - name: Build
         run: npm run build
       - name: Archive artifact
