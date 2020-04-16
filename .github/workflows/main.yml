@@ -21,7 +21,7 @@ jobs:
       - name: Configure gpg
         run: echo use-agent >> ~/.gnupg/gpg.conf && echo pinentry-mode loopback >> ~/.gnupg/gpg.conf && echo allow-loopback-pinentry >> ~/.gnupg/gpg-agent.conf && echo RELOADAGENT | gpg-connect-agent
       - name: Import gpg key
-        run: gpg --import $HOME/secrets/secret_key
+        run: gpg --import --no-tty --batch --yes $HOME/secrets/secret_key
       - name: Reveal encrypted filess
         run: git secret reveal
       - name: Build
