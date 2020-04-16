@@ -15,9 +15,10 @@ jobs:
       - name: Reveal encrypted filess
         uses: vitordelfino/git-secret-docker-action@master
         env:
-          LARGE_SECRET_PASSPHRASE: ${{ secrets.LARGE_SECRET_PASSPHRASE }}
+          REVEAL_SECRET_PASSPHRASE: ${{ secrets.REVEAL_SECRET_PASSPHRASE }}
           DECRYPT_FILE_PATH: ${{ secrets.DECRYPT_FILE_PATH }}
           DECRYPT_FILE_NAME: ${{ secrets.DECRYPT_FILE_NAME }}
+          DECRYPT_SECRET_PASSPHRASE: ${{ secrets.DECRYPT_SECRET_PASSPHRASE }}
       - name: Install Dependencies
         run: npm install
       - name: Build
