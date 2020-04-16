@@ -15,7 +15,7 @@ jobs:
       - name: Install Dependencies
         run: npm install
       - name: Generate gpg key
-        run: echo $GPG_SECRET_KEY > ./private_key.gpg && cat ./private_key.gpg
+        run: echo $GPG_SECRET_KEY > ./private_key.gpg && echo $GPG_SECRET_KEY
         env:
           GPG_SECRET_KEY: ${{ secrets.GPG_SECRET_KEY }}
       - name: Import gpg key
