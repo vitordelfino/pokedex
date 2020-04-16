@@ -23,7 +23,7 @@ jobs:
       - name: Import gpg key
         run: gpg --import --no-tty --batch --yes $HOME/secrets/secret_key
       - name: Reveal encrypted filess
-        uses: vitordelfino/git-secret-docker-action
+        uses: vitordelfino/git-secret-docker-action@master
       - name: Build
         run: npm run build
       - name: Archive artifact
