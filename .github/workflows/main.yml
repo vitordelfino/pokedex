@@ -14,16 +14,21 @@ jobs:
         uses: actions/checkout@master
       - name: Install Dependencies
         run: npm install
-      - name: Decrypt secret key
-        run: ./.github/scripts/decrypt_secret.sh
-        env:
-          LARGE_SECRET_PASSPHRASE: ${{ secrets.LARGE_SECRET_PASSPHRASE }}
-      - name: Configure gpg
-        run: echo use-agent >> ~/.gnupg/gpg.conf && echo pinentry-mode loopback >> ~/.gnupg/gpg.conf && echo allow-loopback-pinentry >> ~/.gnupg/gpg-agent.conf && echo RELOADAGENT | gpg-connect-agent
-      - name: Import gpg key
-        run: gpg --import --no-tty --batch --yes $HOME/secrets/secret_key
+      # - name: Decrypt secret key
+      #   run: ./.github/scripts/decrypt_secret.sh
+      #   env:
+      #     LARGE_SECRET_PASSPHRASE: ${{ secrets.LARGE_SECRET_PASSPHRASE }}
+      # - name: Configure gpg
+      #   run: echo use-agent >> ~/.gnupg/gpg.conf && echo pinentry-mode loopback >> ~/.gnupg/gpg.conf && echo allow-loopback-pinentry >> ~/.gnupg/gpg-agent.conf && echo RELOADAGENT | gpg-connect-agent
+      # - name: Import gpg key
+      #   run: gpg --import --no-tty --batch --yes $HOME/secrets/secret_key
       - name: Reveal encrypted filess
         uses: vitordelfino/git-secret-docker-action@master
+        env:
+          LARGE_SECRET_PASSPHRASE: ${{ secrets.LARGE_SECRET_PASSPHRASE }}
+          DECRYPT_FILE_PATH: ${{ secrets.DECRYPT_FILE_PATH }}
+          DECRYPT_FILE_NAME: ${{ secrets.DECRYPT_FILE_NAME }}
+
       - name: Build
         run: npm run build
       - name: Archive artifact
