@@ -1,0 +1,26 @@
+[debug] [2020-08-22T20:15:48.139Z] ----------------------------------------------------------------------
+[debug] [2020-08-22T20:15:48.141Z] Command:       /home/vitordelfino/.nvm/versions/node/v14.6.0/bin/node /home/vitordelfino/.nvm/versions/node/v14.6.0/bin/firebase deploy
+[debug] [2020-08-22T20:15:48.141Z] CLI Version:   8.9.0
+[debug] [2020-08-22T20:15:48.141Z] Platform:      linux
+[debug] [2020-08-22T20:15:48.141Z] Node Version:  v14.6.0
+[debug] [2020-08-22T20:15:48.142Z] Time:          Sat Aug 22 2020 17:15:48 GMT-0300 (Brasilia Standard Time)
+[debug] [2020-08-22T20:15:48.142Z] ----------------------------------------------------------------------
+[debug] [2020-08-22T20:15:48.142Z] 
+[debug] [2020-08-22T20:15:48.149Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-08-22T20:15:48.150Z] > authorizing via signed-in user
+[debug] [2020-08-22T20:15:48.150Z] [iam] checking project pokedex-272622 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2020-08-22T20:15:48.153Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/pokedex-272622:testIamPermissions  
+ {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2020-08-22T20:15:48.987Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sat, 22 Aug 2020 20:15:48 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=733","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-08-22T20:15:48.992Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/pokedex-272622  
+ 
+[debug] [2020-08-22T20:15:49.987Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sat, 22 Aug 2020 20:15:49 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] === Deploying to 'pokedex-272622'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2020-08-22T20:15:49.997Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/pokedex-272622/versions  
+ {"config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2020-08-22T20:15:51.439Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sat, 22 Aug 2020 20:15:51 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  hosting[pokedex-272622]: beginning deploy... 
+[info] i  hosting[pokedex-272622]: found 21 files in build 
