@@ -1,4 +1,12 @@
-import { call, put, takeLatest, all, select } from 'redux-saga/effects';
+/* eslint-disable consistent-return */
+import {
+  call,
+  put,
+  takeLatest,
+  all,
+  select,
+  StrictEffect,
+} from 'redux-saga/effects';
 import { AxiosResponse } from 'axios';
 import { toast } from 'react-toastify';
 import { AppState } from '../rootReducer';
@@ -25,13 +33,21 @@ function* searchPokemons() {
   }
 }
 
-function* filterPokemon(action: PokemonActionTypes) {
-  const text = action.payload as string;
-  if (text === '')
-    return yield put(typeaheadActions.filterNamesActionSuccess([]));
-  const { pokemons } = yield select((state: AppState) => state.typeahead);
-  const filter = pokemons.filter((p: string) => p.includes(text));
-  yield put(typeaheadActions.filterNamesActionSuccess(filter));
+function* filterPokemon(
+  action: PokemonActionTypes
+): Generator<StrictEffect, void, any> {
+  try {
+    const text = action.payload as string;
+    if (text === '')
+      return yield put(typeaheadActions.filterNamesActionSuccess([]));
+    const { pokemons } = yield select((state: AppState) => state.typeahead);
+    const filter = pokemons.filter((p: string) =>
+      p.toLowerCase().includes(text.toLowerCase())
+    );
+    yield put(typeaheadActions.filterNamesActionSuccess(filter));
+  } catch (e) {
+    toast.error('Erro ao filtrar pokemons');
+  }
 }
 
 export default all([
