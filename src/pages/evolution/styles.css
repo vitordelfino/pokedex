@@ -1,0 +1,33 @@
+.ant-skeleton.ant-skeleton-element.ant-skeleton-active {
+  width: 400px;
+}
+
+@media(min-width: 1100px) {
+  .ant-skeleton.ant-skeleton-element.ant-skeleton-active {
+    width: 700px;
+    height: 500px;
+  }
+
+  .ant-skeleton-input {
+    height: 500px !important;
+  }
+
+  .ant-carousel {
+    width: 700px;
+    height: 500px;
+  }
+
+  .slick-slider.slick-initialized {
+    width: 700px !important;
+    height: 500px !important;
+  }
+
+  .carousel-card {
+    height: 500px !important;
+  }
+
+  .carousel-image {
+    width: 400px !important;
+    height: 400px !important;
+  }
+}

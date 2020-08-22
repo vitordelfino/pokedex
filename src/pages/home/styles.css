@@ -1,0 +1,5 @@
+@media(min-width: 1100px) {
+  .input-pokemon {
+    width: 600px;
+  }
+}

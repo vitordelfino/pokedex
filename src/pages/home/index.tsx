@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-curly-newline */
 import React, { useState, useCallback, useEffect } from 'react';
 import { Layout, Empty, AutoComplete } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
@@ -8,7 +9,10 @@ import Loader from '../../components/Loader';
 import { AppState } from '../../store/modules/rootReducer';
 import CardPokemon from '../../components/CardPokemon';
 
+import './styles.css';
+
 const tracker = 'pokemon-tracker';
+
 export default function Home(): JSX.Element {
   const dispatch = useDispatch();
 
@@ -73,8 +77,9 @@ export default function Home(): JSX.Element {
     >
       {isLoading && <Loader />}
       <AutoComplete
+        className="input-pokemon"
         options={filtered.map(name => ({ value: name }))}
-        style={{ width: '60%', marginBottom: '25px' }}
+        style={{ minWidth: '300px', marginBottom: '25px' }}
         placeholder="Digite o nome do pokemon"
         onSearch={(text: string) => {
           dispatch(typeaheadActions.filterNamesAction(text));
@@ -83,7 +88,8 @@ export default function Home(): JSX.Element {
           setSearch(data);
         }}
         onKeyUp={(e: React.KeyboardEvent<HTMLInputElement>) =>
-          handleSearchOnEnter(e)}
+          handleSearchOnEnter(e)
+        }
         onSelect={(name: string) => handleSearch(name)}
         value={search}
       />

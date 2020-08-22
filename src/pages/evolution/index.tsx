@@ -1,13 +1,15 @@
+/* eslint-disable react/jsx-wrap-multilines */
 import React, { useEffect } from 'react';
 import { Carousel, Pagination, Card, Skeleton } from 'antd';
-import './evolution.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppState } from '../../store/modules/rootReducer';
 import * as paginateAction from '../../store/modules/evolution-paginate/actions';
 import ga from '../../services/ga';
 
-const tracker = 'pokemon-tracker';
+import './styles.css';
+
 const Evolution = () => {
+  const tracker = 'pokemon-tracker';
   const dispatch = useDispatch();
   const { evolutionPaginate, isLoading: loadingPagination } = useSelector(
     (state: AppState) => state.evolutionPaginate
@@ -38,51 +40,54 @@ const Evolution = () => {
 
   return (
     <>
-      <Skeleton active loading={isLoading} />
-      <Skeleton active loading={isLoading} />
-      <Skeleton active avatar loading={isLoading} />
-      <Skeleton active loading={isLoading}>
+      {isLoading ? (
+        <Skeleton.Input active style={{ width: '100%', height: '300px' }} />
+      ) : (
         <Carousel
+          /* autoplay */
           dotPosition="top"
           speed={500}
-          style={{ width: '100%' }}
+          style={{ width: '400px' }}
           arrows
         >
           {evolutions.map((ev, index) => (
             <div>
               <Card
+                className="carousel-card"
                 hoverable
-                style={{ width: '100%' }}
-                cover={(
+                style={{ width: '100%', height: '300px' }}
+                cover={
                   <div
                     style={{
-                      background: `rgba(255, 50, 50, 0.5)`,
+                      display: 'flex',
+                      background: `rgba(255, 0, 0, 0.5)`,
                       overflow: 'hidden',
                       height: '100%',
                       alignItems: 'center',
-                      width: 'auto',
-                      margin: '0 auto',
+                      justifyContent: 'center',
+                      padding: '15px',
                     }}
                   >
                     <img
+                      className="carousel-image"
                       style={{
-                        padding: '10px',
-                        width: '100%',
+                        width: '200px',
                         transition: 'opacity .7s ease-in',
-                        height: '500px',
+                        height: '200px',
                       }}
                       src={ev.image}
                       alt="pokemon"
                     />
                   </div>
-                )}
+                }
               >
                 <Card.Meta title={`#${ev.id} - ${ev.name}`} />
               </Card>
             </div>
           ))}
         </Carousel>
-      </Skeleton>
+      )}
+
       <Pagination
         style={{
           marginTop: '15px',

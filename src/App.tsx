@@ -19,39 +19,33 @@ function App() {
   return (
     <Provider store={store}>
       <Router history={history}>
-        <Layout>
+        <Layout style={{ minHeight: '100vh' }}>
           <Sidebar />
-          <Layout className="site-layout">
+          <Layout>
             <Content
               style={{
+                flexDirection: 'column',
+                display: 'flex',
                 margin: '24px 16px',
-                padding: 24,
-                minHeight: 280,
+                padding: 0,
+                justifyContent: 'center',
+                alignItems: 'center',
               }}
             >
               <Routes />
             </Content>
             <div
               style={{
+                display: 'flex',
                 width: '100%',
-                textAlign: 'center',
+                alignItems: 'center',
+                justifyContent: 'center',
                 marginBottom: '15px',
+                flexDirection: 'column',
               }}
             >
-              <ul
-                style={{
-                  listStyle: 'none',
-                }}
-              >
-                <li>
-                  <span>Vitor Delfino © 2020</span>
-                </li>
-                <li>
-                  <span>
-                    <a href="https://www.vitordelfino.dev">vitordelfino.dev</a>
-                  </span>
-                </li>
-              </ul>
+              <span>Vitor Delfino © 2020</span>
+              <a href="https://www.vitordelfino.dev">vitordelfino.dev</a>
             </div>
           </Layout>
         </Layout>
