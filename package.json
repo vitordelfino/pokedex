@@ -16,7 +16,7 @@
     "customize-cra": "^0.9.1",
     "firebase": "^7.13.1",
     "history": "^4.10.1",
-    "immer": "^6.0.1",
+    "immer": "^9.0.6",
     "less": "^3.11.1",
     "less-loader": "^5.0.0",
     "polished": "^3.5.1",
